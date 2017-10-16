@@ -11,8 +11,14 @@ const app = express();
 app.use( bodyParser.json() );
 app.use( cors() );
 
-//shit that I am adding
 
+//getting the database connected
+massive( process.env.CONNECTION_STRING ).then( dbInstance => app.set('db', dbInstance) );
+
+
+
+
+//shit that I am adding
 const controller = require('./controller.js')
 
 
